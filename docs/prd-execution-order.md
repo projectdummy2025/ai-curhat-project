@@ -24,24 +24,24 @@ Sebelum memulai penulisan kode, seluruh tim sangat disarankan membaca dokumen-do
 Sebelum beralih dari satu fase ke fase berikutnya, pastikan poin-poin berikut telah dipahami dan dipenuhi:
 
 ### Kriteria Fondasi Produk
-- [ ] Produk bersifat **single-thread** (tidak menyediakan fitur "chat baru" atau multi-thread).
-- [ ] Ringkasan PDF berupa **resume faktual**, bukan lembar diagnosis medis/klinis.
-- [ ] Aspek **privasi mutlak** terpenuhi dengan tidak menyimpan riwayat chat lengkap di database server.
+- Produk bersifat **single-thread** (tidak menyediakan fitur "chat baru" atau multi-thread).
+- Ringkasan PDF berupa **resume faktual**, bukan lembar diagnosis medis/klinis.
+- Aspek **privasi mutlak** terpenuhi dengan tidak menyimpan riwayat chat lengkap di database server.
 
 ### Kriteria Logika AI
-- [ ] Deteksi krisis memiliki 3 lapisan pengamanan (Regex → LLM Classifier → Hardcoded Fallback).
-- [ ] Manajemen konteks menggunakan batas **10 pesan terakhir** (Sliding Window) dan pembuatan ringkasan otomatis setiap **20 pesan** (Auto-Summarization).
-- [ ] Hasil ringkasan `current_summary` bebas dari istilah medis, klinis, atau diagnosis psikologis.
+- Deteksi krisis memiliki 3 lapisan pengamanan (Regex → LLM Classifier → Hardcoded Fallback).
+- Manajemen konteks menggunakan batas **10 pesan terakhir** (Sliding Window) dan pembuatan ringkasan otomatis setiap **20 pesan** (Auto-Summarization).
+- Hasil ringkasan `current_summary` bebas dari istilah medis, klinis, atau diagnosis psikologis.
 
 ### Kriteria Fitur Klien & Ekspor
-- [ ] Dokumen PDF dihasilkan **100% di browser** pengguna (menggunakan library `html2pdf.js` atau `jspdf`).
-- [ ] Riwayat obrolan lengkap disimpan secara aman di **IndexedDB** lokal (bukan LocalStorage).
-- [ ] Endpoint data ekspor (`/api/export-data`) tidak meninggalkan jejak atau log di server.
+- Dokumen PDF dihasilkan **100% di browser** pengguna (menggunakan library `html2pdf.js` atau `jspdf`).
+- Riwayat obrolan lengkap disimpan secara aman di **IndexedDB** lokal (bukan LocalStorage).
+- Endpoint data ekspor (`/api/export-data`) tidak meninggalkan jejak atau log di server.
 
 ### Kriteria Implementasi Teknis
-- [ ] Batas folder jelas: `/app/api/` untuk Orang Pertama (Backend/AI), dan `/components/` untuk Orang Kedua (Frontend).
-- [ ] Seluruh komponen frontend pada folder `/components/` dan `/app/` memiliki direktif `"use client";` pada baris pertama.
-- [ ] Rencana cadangan siap digunakan jika terjadi kendala teknis (misalnya menggunakan `window.print()` jika PDF engine bermasalah).
+- Batas folder jelas: `/app/api/` untuk Orang Pertama (Backend/AI), dan `/components/` untuk Orang Kedua (Frontend).
+- Seluruh komponen frontend pada folder `/components/` dan `/app/` memiliki direktif `"use client";` pada baris pertama.
+- Rencana cadangan siap digunakan jika terjadi kendala teknis (misalnya menggunakan `window.print()` jika PDF engine bermasalah).
 
 ## 4. Alur Pengembangan Bertahap (Sprint Phase)
 
