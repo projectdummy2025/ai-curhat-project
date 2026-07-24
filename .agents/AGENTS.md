@@ -1,0 +1,23 @@
+## Coding Standards
+- **Simplicity**: Ikuti aturan lazy developer. Tulis kode sesedikit mungkin. Hilangkan abstraksi tidak perlu.
+- **Keterbacaan & Alur**:
+  - Tulis kode sesingkat mungkin tanpa mengorbankan keterbacaan.
+  - Setiap baris hanya melakukan satu hal dan langsung jelas tujuannya. Satu baris kode tidak boleh melakukan lebih dari satu tujuan sekaligus.
+  - Alur kode ditulis linear dari atas ke bawah secara step-by-step. Hindari membuat helper function, wrapper, atau layer tambahan yang tidak benar-benar diperlukan.
+  - Logika bisnis tidak boleh berubah sama sekali. Refactor boleh dilakukan tetapi hasil akhir harus 100% identik secara perilaku dengan kode aslinya.
+  - Setiap blok logika wajib disertai komentar singkat yang menjelaskan apa yang sedang dilakukan dan mengapa.
+- **Aturan Penamaan (Naming Convention)**:
+  - Semua nama variabel dan fungsi wajib deskriptif dalam bahasa Inggris dengan format camelCase tanpa singkatan apapun. Nama harus langsung menggambarkan isinya.
+  - Gunakan maksimal dua kata yang deskriptif dan mudah dimengerti.
+  - Tidak ada singkatan dalam bentuk apapun.
+  - Contoh benar: `transactionHash`, `walletAddress`, `privateKey`, `userBalance`.
+  - Contoh salah: `txHash`, `addr`, `pk`, `bal`.
+- **Database & Querying**:
+  - Gunakan ORM untuk operasi CRUD standar demi menjaga kecepatan pengembangan dan keamanan (menghindari SQL Injection).
+  - Gunakan Raw SQL (atau Query Builder) khusus untuk query yang sangat kompleks, *multi-joins* rumit, analitik data, atau saat ORM menghasilkan query yang tidak efisien.
+  - **Anti-Pattern N+1 Query**: Dilarang keras melakukan eksekusi query database di dalam sebuah *loop*. Selalu gunakan *Eager Loading* (seperti `.include()`, `.with()`, dll) untuk mengambil data relasi secara bersamaan di awal.
+- **Types**: Tulis TypeScript yang ketat. Selalu buat interface untuk data DB/API.
+- **Styling**: Gunakan Tailwind CSS utility classes. Jangan gunakan CSS kustom kecuali sangat terpaksa.
+- **Components**: Pisahkan komponen interaktif dengan `"use client"`. Gunakan React Server Components (RSC) untuk data fetching.
+- **Separation of Concerns**: Wajib memisahkan UI dan logic/proses bisnis ke dalam file atau layer yang berbeda (contoh: buat custom hook, service, atau helper) agar kode tidak menumpuk di satu file komponen saja (hindari *god component*). Serta dalam memecah kode wajib berdiskusi dengan user.
+- **Testing**: Wajib menulis test untuk setiap fitur yang dibuat.
