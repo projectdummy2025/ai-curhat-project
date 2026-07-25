@@ -1,3 +1,9 @@
+<!-- BEGIN:nextjs-agent-rules -->
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+<!-- END:nextjs-agent-rules -->
+
 ## Coding Standards
 - **Simplicity**: Ikuti aturan lazy developer. Tulis kode sesedikit mungkin. Hilangkan abstraksi tidak perlu.
 - **Keterbacaan & Alur**:
@@ -21,3 +27,8 @@
 - **Components**: Pisahkan komponen interaktif dengan `"use client"`. Gunakan React Server Components (RSC) untuk data fetching.
 - **Separation of Concerns**: Wajib memisahkan UI dan logic/proses bisnis ke dalam file atau layer yang berbeda (contoh: buat custom hook, service, atau helper) agar kode tidak menumpuk di satu file komponen saja (hindari *god component*). Serta dalam memecah kode wajib berdiskusi dengan user.
 - **Testing**: Wajib menulis test untuk setiap fitur yang dibuat.
+- **Git & Version Control**:
+  - Syarat melakukan `git add` dan `git commit` dilakukan berdasarkan pengelompokan/integrasi setiap file (bisa melalui folder atau situasi/konteks tertentu).
+  - Pesan commit tidak menggunakan prefix (seperti `feat:`, `fix:`, dll), melainkan langsung menjelaskan pesan atau situasi apa yang terjadi.
+  - Pemilihan kata/pesan commit terbatas dan wajib menggunakan bahasa Inggris.
+  - Setiap kali melakukan `git commit`, wajib langsung menjalankan `git push`.
